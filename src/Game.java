@@ -1,37 +1,55 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Game {
+class Game {
 
-  Scanner sc;
+  private Scanner sc;
   private String playerName;
   private String player;
   private String computer;
   private int playerFingers;
   private int computerFingers;
-  private boolean oddOrEven;
 
-  public Game() {
+  Game() {
     sc = new Scanner(System.in);
-    player = "odds";
-    computer = "evens";
+    // sc.useDelimiter(System.lineSeparator());
   }
 
-  public void part1() {
+  void introduction() {
     System.out.println("Let's play a game called \"Odds and Evens\"");
-    System.out.print("What is your name? ");
-    playerName = sc.next();
-    System.out.print("Hi " + playerName + ", which do you choose? (O)dds or (E)vens? ");
-    String choice = sc.next();
-    if (choice.equalsIgnoreCase("e")) {
-      player = "evens";
-      computer = "odds";
-    }
+    getPlayerName();
+
+    getPlayerChoice();
     System.out
         .println(playerName + " has picked " + player + "! The computer will be " + computer + ".");
   }
 
-  public void part2() {
+  private void getPlayerName() {
+    System.out.print("What is your name? ");
+    playerName = sc.next();
+    System.out.println(playerName);
+  }
+
+  private void getPlayerChoice() {
+    boolean validChoice = false;
+    do {
+      System.out.print("Hi " + playerName + ", which do you choose? (O)dds or (E)vens? ");
+      String choice = sc.next();
+      choice = choice.charAt(0) + "";
+      if (choice.equalsIgnoreCase("e")) {
+        validChoice = true;
+        player = "evens";
+        computer = "odds";
+      }
+      if (choice.equalsIgnoreCase("o")) {
+        validChoice = true;
+        player = "odds";
+        computer = "evens";
+      }
+    } while (!validChoice);
+  }
+
+  void part2() {
     System.out.print("How many \"Fingers\" do you put out? ");
     playerFingers = sc.nextInt();
     Random rand = new Random();
@@ -39,12 +57,12 @@ public class Game {
     System.out.println("The computer plays " + computerFingers + " \"fingers\".");
   }
 
-  public void part2a() {
+  void part2a() {
     int sum = playerFingers + computerFingers;
     System.out.println(playerFingers + " + " + computerFingers + " = " + sum);
-    oddOrEven = sum % 2 == 0;
+    boolean isEven = sum % 2 == 0;
     System.out.print(sum + " is ...");
-    if (oddOrEven) {
+    if (isEven) {
       System.out.println("even!");
       if (player.equalsIgnoreCase("evens")) {
         System.out.println("That means that " + playerName + " wins! :)");
