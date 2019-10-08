@@ -1,3 +1,5 @@
+package us.jeffharris.oddsorevens;
+
 import java.util.Random;
 import java.util.Scanner;
 

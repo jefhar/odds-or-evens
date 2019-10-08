@@ -1,6 +1,8 @@
+package us.jeffharris.oddsorevens;
+
 import java.util.Scanner;
 
-public class OddsAndEvens {
+public class OddsOrEvens {
 
   private static final Scanner sc = new Scanner(System.in);
   private static int wins = 0;
@@ -48,7 +50,7 @@ public class OddsAndEvens {
     String playerName;
 
     System.out.println(
-        "Let's play a game called \"Odds and Evens\". You will choose 'Odds' or 'Evens'. ");
+        "Let's play a game called \"Odds Or Evens\". You will choose 'Odds' or 'Evens'. ");
     System.out.println(
         "Then we will both \"throw\" fingers from one hand into the center. If the sum of ");
     System.out.println(

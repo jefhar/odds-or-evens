@@ -1,4 +1,4 @@
 FROM openjdk:13
-COPY ./out/production/OddsOrEvens/ /tmp/
+COPY ./out/production/us.jeffharris.oddsorevens.OddsOrEvens/ /tmp/
 WORKDIR /tmp
-ENTRYPOINT ["java", "OddsAndEvens"]
+ENTRYPOINT ["java", "us.jeffharris.oddsorevens.OddsOrEvens"]
