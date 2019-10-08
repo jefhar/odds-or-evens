@@ -15,6 +15,7 @@ public class OddsOrEvens {
         "Thank you for playing, " + playerName + ". After " + (wins + losses) + " games, you won "
             + wins + " games.");
     System.out.printf("That gives you a record of %.2f%%.", wins * 100 / (float) (wins + losses));
+    System.out.println();
   }
 
   private static void playGame(String playerName) {
